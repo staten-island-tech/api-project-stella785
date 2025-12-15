@@ -1,7 +1,7 @@
-import './style.css'
+// import './style.css'
 
 /////example
-async function getData(poke) {
+/* async function getData(poke) {
     try {
         //get data from api
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`);
@@ -17,11 +17,11 @@ async function getData(poke) {
         console.log(error);
     }
 }
-getData("Squirtle");
+getData("Squirtle"); */
 
 /////my code
 
-let data = [
+/* let data = [
     {
         id: "",
         name: "",
@@ -33,25 +33,22 @@ let data = [
         creator: "" 
     }
 ]
+ */
+const apiURL = "https://wizard-world-api.herokuapp.com/Spells";
 
-const URL = "https://wizard-world-api.herokuapp.com/Spells";
-
-async function getData(URL) {
+async function getData(apiURL) {
     try {
-        //get data from api
-        const response = await fetch(URL);
-        const data = await response.json();
-        document.getElementById("api-response").textContent = data.name;
+        const response = await fetch(apiURL);
+
         if (response.status != 200) {
             throw new Error(response);
         } else {
-            //converts response into json we can use
             const data = await response.json();
-            //console.log(data);
+            console.log(data.name);
             document.getElementById("api-response").textContent = data.name;
         }
     } catch (error) {
         console.log(error);
     }
 }
-getData(URL);
+getData(apiURL);
