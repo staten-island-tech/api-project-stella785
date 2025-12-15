@@ -34,10 +34,14 @@ let data = [
     }
 ]
 
-async function getData(spells) {
+const URL = "https://wizard-world-api.herokuapp.com/Spells";
+
+async function getData(URL) {
     try {
         //get data from api
-        const response = await fetch(`https://wizard-world-api.herokuapp.com/Spells${spells}`);
+        const response = await fetch(URL);
+        const data = await response.json();
+        document.getElementById("api-response").textContent = data.name;
         if (response.status != 200) {
             throw new Error(response);
         } else {
@@ -50,4 +54,4 @@ async function getData(spells) {
         console.log(error);
     }
 }
-getData("Opening Charm");
+getData(URL);
