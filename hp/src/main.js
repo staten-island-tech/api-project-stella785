@@ -21,7 +21,7 @@ getData("Squirtle"); */
 
 /////my code
 
-/* let data = [
+let data = [
     {
         id: "",
         name: "",
@@ -33,7 +33,7 @@ getData("Squirtle"); */
         creator: "" 
     }
 ]
- */
+
 const apiURL = "https://wizard-world-api.herokuapp.com/Spells";
 
 async function getData(apiURL) {
@@ -44,8 +44,8 @@ async function getData(apiURL) {
             throw new Error(response);
         } else {
             const data = await response.json();
-            console.log(data.name);
-            document.getElementById("api-response").textContent = data.name;
+            console.log(data[0].light);
+            
         }
     } catch (error) {
         console.log(error);
