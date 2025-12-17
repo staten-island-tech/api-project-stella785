@@ -39,13 +39,19 @@ const apiURL = "https://wizard-world-api.herokuapp.com/Spells";
 async function getData(apiURL) {
     try {
         const response = await fetch(apiURL);
-
         if (response.status != 200) {
             throw new Error(response);
         } else {
             const data = await response.json();
-            console.log(data[0].light);
-            
+            const spells = data;
+            spells.forEach(spell => {
+                document.querySelector(".card").insertAdjacentHTML("afterbegin", `
+                    <div class = "card">
+                        <h2 id="name">${spell.name}</h2>
+                        <h2 id = "creator">${spell.creator}</h3>
+                    </div>
+                    `)
+            });
         }
     } catch (error) {
         console.log(error);
