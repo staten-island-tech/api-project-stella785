@@ -44,20 +44,24 @@ async function getData(apiURL) {
         } else {
             const data = await response.json();
             const spells = data;
-            const container = document.querySelector(".cards")
+            const container = document.querySelector(".container")
             spells.forEach(spell => {
                 container.insertAdjacentHTML("beforeend", `
-                    <div class = "card">
-                        <h2>${spell.id}</h2>
-                        <h2>${spell.name}</h2>
-                        <h2>${spell.incantation}</h2>
-                        <h2>${spell.effect}</h2>
-                        <h2>${spell.canBeVerbal}</h2>
-                        <h2>${spell.type}</h2>
-                        <h2>${spell.light}</h2>
-                        <h2>${spell.creator}</h2>
+                    <div class = "cards">
+                        <h2>id: ${spell.id}</h2>
+                        <h2>name: ${spell.name}</h2>
+                        <h2>incantation: ${spell.incantation || "None"}</h2>
+                        <h2>effect: ${spell.effect}</h2>
+                        <h2>is it verbal?: ${spell.canBeVerbal || "No"}</h2>
+                        <h2>spell type: ${spell.type}</h2>
+                        <h2>color: ${spell.light}</h2>
+                        <h2>creator: ${spell.creator || "Unknown"}</h2>
                     </div>    
                     `)
+                    //FIX THIS LATER
+/*                 if (spell.canBeVerbal === true) {
+                    console.log("Yes")
+                } */
             })
         }
     } catch (error) {
