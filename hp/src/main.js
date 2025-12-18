@@ -44,14 +44,21 @@ async function getData(apiURL) {
         } else {
             const data = await response.json();
             const spells = data;
+            const container = document.querySelector(".cards")
             spells.forEach(spell => {
-                document.querySelector(".card").insertAdjacentHTML("afterbegin", `
+                container.insertAdjacentHTML("beforeend", `
                     <div class = "card">
-                        <h2 id="name">${spell.name}</h2>
-                        <h2 id = "creator">${spell.creator}</h3>
-                    </div>
+                        <h2>${spell.id}</h2>
+                        <h2>${spell.name}</h2>
+                        <h2>${spell.incantation}</h2>
+                        <h2>${spell.effect}</h2>
+                        <h2>${spell.canBeVerbal}</h2>
+                        <h2>${spell.type}</h2>
+                        <h2>${spell.light}</h2>
+                        <h2>${spell.creator}</h2>
+                    </div>    
                     `)
-            });
+            })
         }
     } catch (error) {
         console.log(error);
