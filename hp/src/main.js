@@ -47,15 +47,15 @@ async function getData(apiURL) {
             const container = document.querySelector(".container")
             spells.forEach(spell => {
                 container.insertAdjacentHTML("beforeend", `
-                    <div class = "cards">
-                        <h2>id: ${spell.id}</h2>
-                        <h2>name: ${spell.name}</h2>
-                        <h2>incantation: ${spell.incantation || "None"}</h2>
-                        <h2>effect: ${spell.effect}</h2>
-                        <h2>is it verbal?: ${spell.canBeVerbal || "No"}</h2>
-                        <h2>spell type: ${spell.type}</h2>
-                        <h2>color: ${spell.light}</h2>
-                        <h2>creator: ${spell.creator || "Unknown"}</h2>
+                    <div id = "cards" class = "m-8 p-8 border-4 border-sky-900 bg-gray-200 ...">
+                        <div id="name" class ="font-bold">${spell.name}</div>
+                        <div id="id">id: ${spell.id}</div>
+                        <div id="incantation">incantation: ${spell.incantation || "None"}</div>
+                        <div id="effect">effect: ${spell.effect}</div>
+                        <div id="verbal">is it verbal?: ${spell.canBeVerbal || "No"}</div>
+                        <div id="type">spell type: ${spell.type}</div>
+                        <div id="color">color: ${spell.light}</div>
+                        <div id="creator">creator: ${spell.creator || "Unknown"}</div>
                     </div>    
                     `)
                     //FIX THIS LATER
