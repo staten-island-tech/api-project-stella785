@@ -71,25 +71,17 @@ async function getData(apiURL) {
 getData(apiURL);
 
 function search(input) {
-    const cards = document.querySelectorAll("#card");
+    const cards = document.querySelectorAll("#cards");
     const search = input.toLowerCase();
     cards.forEach((card) => {
-        const name = card.querySelector("#name").textContent.toLowerCase();
-        const id = card.querySelector("#id").textContent.toLowerCase();
-        const incantation = card.querySelector("#incantation").textContent.toLowerCase();
-        const effect = card.querySelector("#effect").textContent.toLowerCase();
-        const canBeVerbal = card.querySelector("#verbal").textContent.toLowerCase();
-        const type = card.querySelector("#type").textContent.toLowerCase();
-        const light = card.querySelector("#color").textContent.toLowerCase();
-        const creator = card.querySelector("#creator").textContent.toLowerCase();
-        if (name.includes(search) || id.includes(search) || incantation.includes(search)) {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(search)) {
             card.style.display = "inline-block"
         } else {
             card.style.display = "none";
         }
     })
 }
-document.querySelector("#searchBar").addEventListener("click", () => {
-    const input = document.querySelector(".search input").value;
-    search(input);
+document.querySelector("#search input").addEventListener("input", (event) => {
+    search(event.target.value);
 });
