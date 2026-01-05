@@ -46,9 +46,9 @@ async function getData(apiURL) {
             const spells = data;
             const container = document.querySelector(".container")
             spells.forEach(spell => {
-                container.insertAdjacentHTML("beforeend", `
-                    <div id = "cards" class = "m-8 p-8 border-4 border-sky-900 bg-gray-200 justify-self-center box-content size-64 ">
-                        <div id="name" class ="font-bold">${spell.name}</div>
+                container.insertAdjacentHTML("afterbegin", `
+                    <div id = "cards" class = "m-8 p-8 border-4 border-sky-900 bg-gray-200 ">
+                        <div id="name" class ="font-bold underline underline-offset-4">${spell.name}</div>
                         <div id="id">id: ${spell.id}</div>
                         <div id="incantation">incantation: ${spell.incantation || "None"}</div>
                         <div id="effect">effect: ${spell.effect}</div>
