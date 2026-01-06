@@ -47,15 +47,15 @@ async function getData(apiURL) {
             const container = document.querySelector(".container")
             spells.forEach(spell => {
                 container.insertAdjacentHTML("afterbegin", `
-                    <div id = "cards" class = "m-8 p-8 border-4 border-sky-900 bg-gray-200 ">
+                    <div id = "cards" class = " m-8 p-8 border-4 border-sky-900 bg-gray-200">
                         <div id="name" class ="font-bold underline underline-offset-4">${spell.name}</div>
-                        <div id="id">id: ${spell.id}</div>
-                        <div id="incantation">incantation: ${spell.incantation || "None"}</div>
-                        <div id="effect">effect: ${spell.effect}</div>
-                        <div id="verbal">is it verbal?: ${spell.canBeVerbal || "No"}</div>
-                        <div id="type">spell type: ${spell.type}</div>
-                        <div id="color">color: ${spell.light}</div>
-                        <div id="creator">creator: ${spell.creator || "Unknown"}</div>
+                        <div id="id">Id: ${spell.id}</div>
+                        <div id="incantation">Incantation: ${spell.incantation || "None"}</div>
+                        <div id="effect">Effect: ${spell.effect}</div>
+                        <div id="verbal">Is it verbal?: ${spell.canBeVerbal || "No"}</div>
+                        <div id="type">Spell type: ${spell.type}</div>
+                        <div id="color">Color: ${spell.light}</div>
+                        <div id="creator">Creator: ${spell.creator || "Unknown"}</div>
                     </div>    
                     `)
                     //FIX THIS LATER
