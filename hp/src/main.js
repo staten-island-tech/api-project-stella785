@@ -58,10 +58,6 @@ async function getData(apiURL) {
                         <div id="creator">Creator: ${spell.creator || "Unknown"}</div>
                     </div>    
                     `)
-                    //FIX THIS LATER
-/*                 if (spell.canBeVerbal === true) {
-                    console.log("Yes")
-                } */
             })
         }
     } catch (error) {
