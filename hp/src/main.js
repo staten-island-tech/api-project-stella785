@@ -59,6 +59,29 @@ async function getData(apiURL) {
                     </div>    
                     `)
             })
+            function filter(input) {
+                document.querySelector(".container").innerHTML = "";
+                spells.forEach(spell => {
+                    if (text.toLowerCase().includes(search)) {
+                        document.querySelector(".container");
+                        container.insertAdjacentHTML("afterbegin", `
+                        <div id = "cards" class = " m-8 p-8 border-4 border-sky-900 bg-gray-200">
+                            <div id="name" class ="font-bold underline underline-offset-4">${spell.name}</div>
+                            <div id="id">Id: ${spell.id}</div>
+                            <div id="incantation">Incantation: ${spell.incantation || "None"}</div>
+                            <div id="effect">Effect: ${spell.effect}</div>
+                            <div id="verbal">Is it verbal?: ${spell.canBeVerbal || "No"}</div>
+                            <div id="type">Spell type: ${spell.type}</div>
+                            <div id="color">Color: ${spell.light}</div>
+                            <div id="creator">Creator: ${spell.creator || "Unknown"}</div>
+                        </div>    
+                    `)
+                }
+            })
+    }
+document.querySelector("#search input").addEventListener("input", (event) => {
+    filter(event.target.value);
+});
         }
     } catch (error) {
         console.log(error);
@@ -66,7 +89,7 @@ async function getData(apiURL) {
 }
 getData(apiURL);
 
-function search(input) {
+/* function search(input) {
     const cards = document.querySelectorAll("#cards");
     const search = input.toLowerCase();
     cards.forEach((card) => {
@@ -80,4 +103,29 @@ function search(input) {
 }
 document.querySelector("#search input").addEventListener("input", (event) => {
     search(event.target.value);
-});
+}); */
+
+/* function filter(input) {
+    document.querySelector(".container").innerHTML = "";
+        spells.forEach(spell => {
+            if (text.toLowerCase().includes(search)) {
+                document.querySelector(".container");
+                container.insertAdjacentHTML("afterbegin", `
+                <div id = "cards" class = " m-8 p-8 border-4 border-sky-900 bg-gray-200">
+                    <div id="name" class ="font-bold underline underline-offset-4">${spell.name}</div>
+                    <div id="id">Id: ${spell.id}</div>
+                    <div id="incantation">Incantation: ${spell.incantation || "None"}</div>
+                    <div id="effect">Effect: ${spell.effect}</div>
+                    <div id="verbal">Is it verbal?: ${spell.canBeVerbal || "No"}</div>
+                    <div id="type">Spell type: ${spell.type}</div>
+                    <div id="color">Color: ${spell.light}</div>
+                    <div id="creator">Creator: ${spell.creator || "Unknown"}</div>
+                </div>    
+            `)
+            }
+            
+        })
+}
+document.querySelector("#search input").addEventListener("input", (event) => {
+    filter(event.target.value);
+}); */
